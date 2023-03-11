@@ -1,7 +1,24 @@
 import openai
 import gradio as gr
+import os
 
-openai.api_key = "<your key>"
+#openai.api_key = "<your key>"
+
+# Set the OpenAI API key as an environment variable
+#os.environ["OPENAI_API_KEY"] = "YOUR_API_KEY_HERE"
+
+# Initialize the OpenAI API client
+#openai.api_key = os.environ.get("OPENAI_API_KEY")
+
+# Set the path to your API key file
+api_key_path = "./file.txt"
+
+# Read the contents of the file
+with open(api_key_path, "r") as file:
+    api_key = file.read().strip()
+
+openai.api_key = api_key
+print(f'openai key value is {openai.api_key}')
 
 model_engine = "text-davinci-003"
 
